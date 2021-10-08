@@ -22,6 +22,10 @@ function Orders(props) {
           </div>
           <div className="items">
             <OrderTab />
+            <OrderTab />
+            <OrderTab />
+            <OrderTab />
+            <OrderTab />
           </div>
           <div className="footer"></div>
         </div>
