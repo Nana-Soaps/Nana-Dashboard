@@ -15,7 +15,7 @@ function OrderTab(props) {
       </div>
       <div className="col3">
         <select>
-          <option>Activ</option>
+          <option>Active</option>
           <option>Cancelled</option>
           <option>Completed</option>
         </select>
