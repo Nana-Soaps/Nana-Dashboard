@@ -23,17 +23,17 @@ function Header(props) {
                 <a className="nav-link text-center">Products</a>
               </li>
             </Link>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link text-center">Analytics</a>
-            </li>
+            </li> */}
             <Link to="/orders" className="text-decoration-none">
               <li className="nav-item">
                 <a className="nav-link text-center">Orders</a>
               </li>
             </Link>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link text-center">Mailing List </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
