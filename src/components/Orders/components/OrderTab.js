@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { setOrders } from "../../../actions";
+import { connect } from "react-redux";
+import checkmark from "../../../assets/checkmark.svg";
 
 function OrderTab(props) {
   const { order } = props;
-  console.log(order);
+  const [formData, setFormData] = useState({ status: order.status });
+  const [expanded, setExpanded] = useState(false);
+  console.log(formData);
+
   const date = new Date(order.created_at);
   const time = new Intl.DateTimeFormat("default", {
     hour: "numeric",
@@ -12,8 +20,32 @@ function OrderTab(props) {
     date
   );
   const price = order.subtotal * (1 + order.tax_rate) + order.shipping.cost;
+
+  const statusChange = (e) => {
+    const { value, name } = e.target;
+    setFormData({ ...formData, [name]: value });
+    axios
+      .put(
+        `https://nanasoapsbackend.herokuapp.com/api/orders/${order.order_id}`,
+        { [name]: value }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const toggleExpanded = () => {
+    setExpanded(() => !expanded);
+  };
+
   return (
-    <div className="d-flex orderTab">
+    <div
+      className={`d-flex orderTab ${expanded ? "expanded" : "notExpanded"}`}
+      onClick={toggleExpanded}
+    >
       <div className="col1">
         <div className="d-flex flex-column small">
           <p className="m-0">{order.email}</p>
@@ -24,12 +56,14 @@ function OrderTab(props) {
         <p className="m-0">{day}</p>
         <p className="m-0">{time}</p>
       </div>
-      <div className="col3">
-        <select>
-          <option>Active</option>
-          <option>Cancelled</option>
-          <option>Completed</option>
-        </select>
+      <div className="col3 d-flex">
+        {formData && (
+          <select onChange={statusChange} name="status" value={formData.status}>
+            <option>Active</option>
+            <option>Cancelled</option>
+            <option>Completed</option>
+          </select>
+        )}
       </div>
       <div className="col4 d-flex ">
         <p className="m-0">${price.toFixed(2)}</p>
@@ -38,4 +72,4 @@ function OrderTab(props) {
   );
 }
 
-export default OrderTab;
+export default connect(null, { setOrders })(OrderTab);

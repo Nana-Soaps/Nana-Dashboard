@@ -3,7 +3,7 @@ import axios from "axios";
 import "../../styles/Products.scss";
 import Category from "./components/Category";
 import { connect } from "react-redux";
-import { setCategories } from "../../actions";
+import { setCategories, setOrders } from "../../actions";
 
 import { Link } from "react-router-dom";
 
@@ -14,6 +14,16 @@ function Products(props) {
       .then((res) => {
         props.setCategories(res.data);
         console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://nanasoapsbackend.herokuapp.com/api/orders")
+      .then((res) => {
+        console.log(res);
+        props.setOrders(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -44,4 +54,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { setCategories })(Products);
+export default connect(mapStateToProps, { setCategories, setOrders })(Products);
