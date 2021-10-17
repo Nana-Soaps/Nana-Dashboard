@@ -7,13 +7,12 @@ import { setCategories } from "../../actions";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
 
-function AddProduct(props) {
+function EditProduct(props) {
   const location = useLocation();
   const { push } = useHistory();
   const product = location.state.product;
-  console.log(product);
   const initialState = {
-    category: "Body Bars",
+    category: product.category_name,
     description: product.description,
     exfoliation: product.exfoliation,
     featured: product.featured,
@@ -186,4 +185,4 @@ function AddProduct(props) {
   );
 }
 
-export default connect(null, { setCategories })(AddProduct);
+export default connect(null, { setCategories })(EditProduct);
