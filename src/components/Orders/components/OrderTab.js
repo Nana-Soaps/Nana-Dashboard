@@ -11,6 +11,7 @@ function OrderTab(props) {
   const day = new Intl.DateTimeFormat(window.clientInformation.language).format(
     date
   );
+  const price = order.subtotal * (1 + order.tax_rate) + order.shipping.cost;
   return (
     <div className="d-flex orderTab">
       <div className="col1">
@@ -31,7 +32,7 @@ function OrderTab(props) {
         </select>
       </div>
       <div className="col4 d-flex ">
-        <p className="m-0">PRICE</p>
+        <p className="m-0">${price.toFixed(2)}</p>
       </div>
     </div>
   );
