@@ -1,17 +1,27 @@
 import React from "react";
 
 function OrderTab(props) {
+  const { order } = props;
+  console.log(order);
+  const date = new Date(order.created_at);
+  const time = new Intl.DateTimeFormat("default", {
+    hour: "numeric",
+    minute: "numeric",
+  }).format(date);
+  const day = new Intl.DateTimeFormat(window.clientInformation.language).format(
+    date
+  );
   return (
     <div className="d-flex orderTab">
       <div className="col1">
         <div className="d-flex flex-column small">
-          <p className="m-0">mkotik97@gmail.com</p>
-          <p className="m-0">Order #1</p>
+          <p className="m-0">{order.email}</p>
+          <p className="m-0">Order #{order.order_id}</p>
         </div>
       </div>
       <div className="col2 d-flex flex-column small">
-        <p className="m-0">08/16/2021</p>
-        <p className="m-0">8:05 PM</p>
+        <p className="m-0">{day}</p>
+        <p className="m-0">{time}</p>
       </div>
       <div className="col3">
         <select>
@@ -21,7 +31,7 @@ function OrderTab(props) {
         </select>
       </div>
       <div className="col4 d-flex ">
-        <p className="m-0">$15.99</p>
+        <p className="m-0">PRICE</p>
       </div>
     </div>
   );

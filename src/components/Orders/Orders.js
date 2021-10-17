@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import OrderTab from "./components/OrderTab";
+import { setOrders } from "../../actions";
+import { connect } from "react-redux";
 import "../../styles/Orders.scss";
 
 function Orders(props) {
+  useEffect(() => {
+    axios
+      .get("https://nanasoapsbackend.herokuapp.com/api/orders")
+      .then((res) => {
+        console.log(res);
+        props.setOrders(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="orders py-5 ">
       <div className="container">
@@ -21,11 +33,14 @@ function Orders(props) {
             <h5 className="amountHead">Amount</h5>
           </div>
           <div className="items">
+            {props.orders.map((order) => (
+              <OrderTab order={order} />
+            ))}
+            {/* <OrderTab />
             <OrderTab />
             <OrderTab />
             <OrderTab />
-            <OrderTab />
-            <OrderTab />
+            <OrderTab /> */}
           </div>
           <div className="footer"></div>
         </div>
@@ -34,4 +49,10 @@ function Orders(props) {
   );
 }
 
-export default Orders;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+export default connect(mapStateToProps, { setOrders })(Orders);

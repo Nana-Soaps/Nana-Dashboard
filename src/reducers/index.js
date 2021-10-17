@@ -1,7 +1,8 @@
-import { SET_CATEGORIES } from "../actions";
+import { SET_CATEGORIES, SET_ORDERS } from "../actions";
 
 const initialState = {
   categories: [],
+  orders: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -10,6 +11,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         categories: action.payload,
+      };
+    }
+    case SET_ORDERS: {
+      return {
+        ...state,
+        orders: action.payload,
       };
     }
     default:
