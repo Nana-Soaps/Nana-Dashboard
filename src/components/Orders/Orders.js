@@ -7,6 +7,15 @@ import { connect } from "react-redux";
 import "../../styles/Orders.scss";
 
 function Orders(props) {
+  useEffect(() => {
+    axios
+      .get("https://nanasoapsbackend.herokuapp.com/api/orders")
+      .then((res) => {
+        console.log(res);
+        props.setOrders(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="orders py-5 ">
       <div className="container">

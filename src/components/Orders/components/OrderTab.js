@@ -22,6 +22,7 @@ function OrderTab(props) {
   const price = order.subtotal * (1 + order.tax_rate) + order.shipping.cost;
 
   const statusChange = (e) => {
+    e.stopPropagation();
     const { value, name } = e.target;
     setFormData({ ...formData, [name]: value });
     axios
@@ -37,7 +38,9 @@ function OrderTab(props) {
       });
   };
 
-  const toggleExpanded = () => {
+  const toggleExpanded = (e) => {
+    e.stopPropagation();
+    if (e.target.name == "status") return;
     setExpanded(() => !expanded);
   };
 
