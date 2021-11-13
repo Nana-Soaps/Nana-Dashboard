@@ -45,32 +45,38 @@ function OrderTab(props) {
   };
 
   return (
-    <div
-      className={`d-flex orderTab ${expanded ? "expanded" : "notExpanded"}`}
-      onClick={toggleExpanded}
-    >
-      <div className="col1">
-        <div className="d-flex flex-column small">
-          <p className="m-0">{order.email}</p>
-          <p className="m-0">Order #{order.order_id}</p>
+    <div className="d-flex flex-column orderItem" onClick={toggleExpanded}>
+      <div className={`d-flex orderTop `} onClick={toggleExpanded}>
+        <div className="col1">
+          <div className="d-flex flex-column small">
+            <p className="m-0">{order.email}</p>
+            <p className="m-0">Order #{order.order_id}</p>
+          </div>
+        </div>
+        <div className="col2 d-flex flex-column small">
+          <p className="m-0">{day}</p>
+          <p className="m-0">{time}</p>
+        </div>
+        <div className="col3 d-flex">
+          {formData && (
+            <select
+              onChange={statusChange}
+              name="status"
+              value={formData.status}
+            >
+              <option>Active</option>
+              <option>Cancelled</option>
+              <option>Completed</option>
+            </select>
+          )}
+        </div>
+        <div className="col4 d-flex ">
+          <p className="m-0">${price.toFixed(2)}</p>
         </div>
       </div>
-      <div className="col2 d-flex flex-column small">
-        <p className="m-0">{day}</p>
-        <p className="m-0">{time}</p>
-      </div>
-      <div className="col3 d-flex">
-        {formData && (
-          <select onChange={statusChange} name="status" value={formData.status}>
-            <option>Active</option>
-            <option>Cancelled</option>
-            <option>Completed</option>
-          </select>
-        )}
-      </div>
-      <div className="col4 d-flex ">
-        <p className="m-0">${price.toFixed(2)}</p>
-      </div>
+      <div
+        className={`orderBody ${expanded ? "expanded" : "notExpanded"}`}
+      ></div>
     </div>
   );
 }
