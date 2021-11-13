@@ -1,24 +1,24 @@
 import React from "react";
 
 function CartItem(props) {
+  const { prod } = props;
+  const prodInfo = prod.info["0"];
   return (
     <div className="cartItem border-bottom">
       <div className="left">
         <div className="imgWrap">
           <img
-            src={
-              "https://cdn.shopify.com/s/files/1/1127/6932/products/Linden_1024x.jpg?v=1576877804"
-            }
+            src={`https://nana-soaps-products.s3.us-east-2.amazonaws.com/${prodInfo.product_id}`}
             alt="soap"
           />
         </div>
       </div>
       <div className="mid">
-        <h2>Lavender</h2>
-        <h3>Quantity: 1</h3>
+        <h2>{prodInfo.name}</h2>
+        <h3>Quantity: {prod.quantity}</h3>
       </div>
       <div className="right d-flex justify-content-end align">
-        <h2>$8.00</h2>
+        <h2>${prod.soldFor.toFixed(2)}</h2>
       </div>
     </div>
   );

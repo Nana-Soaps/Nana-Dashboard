@@ -1,25 +1,30 @@
 import React from "react";
 
 function ContactSummary(props) {
+  const { order } = props;
   return (
     <div className="contactSummary mb-2">
       <div className="contactItem border-bottom d-flex justify-content-between">
         <div className="titleWrap">
           <p className="title">Contact:</p>
         </div>
-        <p>mkotik97@gmail.com</p>
+        <p className="text-end">{order.email}</p>
       </div>
       <div className="contactItem border-bottom d-flex justify-content-between">
         <div className="titleWrap">
           <p className="title">Ship To:</p>
         </div>
-        <p>14 Bramble Lane, Matawan, NJ, 07747</p>
+        <p className="text-end">{`${order.shipping_address}${
+          order.shipping_apartment ? " " + order.shipping_apartment : ""
+        }, ${order.shipping_city}, ${order.shipping_state}, ${
+          order.shipping_zip
+        }`}</p>
       </div>
       <div className="contactItem border-bottom d-flex justify-content-between">
         <div className="titleWrap">
           <p className="title">Notes:</p>
         </div>
-        <p>Leave package in the back</p>
+        <p className="text-end">{`${order.notes ? order.notes : "N/A"}`}</p>
       </div>
     </div>
   );

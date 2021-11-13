@@ -173,12 +173,8 @@ $money-green: #48ad96;
 
       padding: 0.5rem;
 
-      .left {
-        background-color: red;
-      }
       .right {
         width: 40%;
-        // background-color: green;
       }
       .mid {
         width: 60%;
@@ -192,6 +188,9 @@ $money-green: #48ad96;
       .imgWrap {
         width: 3rem;
         height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       h2 {
         font-size: 1.1rem;
@@ -254,8 +253,10 @@ $money-green: #48ad96;
     }
   }
   .orderInfo {
+    max-width: 25rem;
     width: 50%;
     padding: 0rem 1rem;
+    margin: auto;
     p {
       margin: 0px;
       font-weight: 300;

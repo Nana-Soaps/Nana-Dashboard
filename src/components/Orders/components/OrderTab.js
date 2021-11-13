@@ -80,44 +80,45 @@ function OrderTab(props) {
           expanded ? "expanded" : "notExpanded"
         }`}
       >
-        <CartSummary />
+        <CartSummary order={order} />
         <div className="orderInfo">
           <div className="block">
             <div className="item border-bottom">
               <p className="title">Name:</p>
-              <p>Sarah Silverman</p>
+              <p>{`${order.first_name} ${order.last_name}`}</p>
             </div>
             <div className="item border-bottom">
               <p className="title">Shipping:</p>
-              <p>Priority (3-5 Day Shipping)</p>
+              {/* <p>Priority (3-5 Day Shipping)</p> */}
+              <p>{`${order.shipping.shipping_name} (${order.shipping.shipping_description}) `}</p>
             </div>
           </div>
           <div className="block">
             <div className="item border-bottom">
               <p className="title">Tax Rate:</p>
-              <p>7%</p>
+              <p>{`${(order.tax_rate * 100).toFixed(2)}%`}</p>
             </div>
           </div>
           <div className="block">
             <div className="item border-bottom">
-              <p className="title">Address</p>
-              <p>14 Bramble Lane</p>
+              <p className="title">Address:</p>
+              <p>{order.shipping_address}</p>
             </div>
             <div className="item border-bottom">
-              <p className="title">Apartment</p>
-              <p></p>
+              <p className="title">Apartment:</p>
+              <p>{order.shipping_apartment}</p>
             </div>
             <div className="item border-bottom">
-              <p className="title">City</p>
-              <p>Matawan</p>
+              <p className="title">City:</p>
+              <p>{order.shipping_city}</p>
             </div>
             <div className="item border-bottom">
-              <p className="title">State</p>
-              <p>NJ</p>
+              <p className="title">State:</p>
+              <p>{order.shipping_state}</p>
             </div>
             <div className="item border-bottom">
-              <p className="title">Zip</p>
-              <p>07747</p>
+              <p className="title">Zip:</p>
+              <p>{order.shipping_zip}</p>
             </div>
           </div>
         </div>
