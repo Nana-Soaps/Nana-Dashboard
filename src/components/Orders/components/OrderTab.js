@@ -4,13 +4,12 @@ import Swal from "sweetalert2";
 import { setOrders } from "../../../actions";
 import { connect } from "react-redux";
 import checkmark from "../../../assets/checkmark.svg";
+import CartSummary from "./CartSummary";
 
 function OrderTab(props) {
   const { order } = props;
   const [formData, setFormData] = useState({ status: order.status });
   const [expanded, setExpanded] = useState(false);
-  console.log(formData);
-
   const date = new Date(order.created_at);
   const time = new Intl.DateTimeFormat("default", {
     hour: "numeric",
@@ -74,9 +73,9 @@ function OrderTab(props) {
           <p className="m-0">${price.toFixed(2)}</p>
         </div>
       </div>
-      <div
-        className={`orderBody ${expanded ? "expanded" : "notExpanded"}`}
-      ></div>
+      <div className={`orderBody ${expanded ? "expanded" : "notExpanded"}`}>
+        <CartSummary />
+      </div>
     </div>
   );
 }
