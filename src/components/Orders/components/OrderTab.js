@@ -43,6 +43,8 @@ function OrderTab(props) {
     setExpanded(() => !expanded);
   };
 
+  console.log(order);
+
   return (
     <div className="d-flex flex-column orderItem" onClick={toggleExpanded}>
       <div className={`d-flex orderTop `} onClick={toggleExpanded}>
@@ -73,8 +75,52 @@ function OrderTab(props) {
           <p className="m-0">${price.toFixed(2)}</p>
         </div>
       </div>
-      <div className={`orderBody ${expanded ? "expanded" : "notExpanded"}`}>
+      <div
+        className={`orderBody d-flex justify-content-between ${
+          expanded ? "expanded" : "notExpanded"
+        }`}
+      >
         <CartSummary />
+        <div className="orderInfo">
+          <div className="block">
+            <div className="item border-bottom">
+              <p className="title">Name:</p>
+              <p>Sarah Silverman</p>
+            </div>
+            <div className="item border-bottom">
+              <p className="title">Shipping:</p>
+              <p>Priority (3-5 Day Shipping)</p>
+            </div>
+          </div>
+          <div className="block">
+            <div className="item border-bottom">
+              <p className="title">Tax Rate:</p>
+              <p>7%</p>
+            </div>
+          </div>
+          <div className="block">
+            <div className="item border-bottom">
+              <p className="title">Address</p>
+              <p>14 Bramble Lane</p>
+            </div>
+            <div className="item border-bottom">
+              <p className="title">Apartment</p>
+              <p></p>
+            </div>
+            <div className="item border-bottom">
+              <p className="title">City</p>
+              <p>Matawan</p>
+            </div>
+            <div className="item border-bottom">
+              <p className="title">State</p>
+              <p>NJ</p>
+            </div>
+            <div className="item border-bottom">
+              <p className="title">Zip</p>
+              <p>07747</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
