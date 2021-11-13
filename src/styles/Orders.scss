@@ -212,11 +212,12 @@ $money-green: #48ad96;
     background-color: $white;
     h3,
     p {
+      font-size: 0.9rem;
       margin: 0px;
-      font-weight: 300;
+      font-weight: 400;
     }
     .price {
-      font-weight: 400;
+      font-weight: 300;
     }
     .breakdown {
       div {
@@ -224,7 +225,31 @@ $money-green: #48ad96;
       }
     }
     .total {
+      h3 {
+        font-size: 1.2rem;
+      }
       padding: 1rem 0.5rem;
+    }
+  }
+  .contactSummary {
+    background-color: $white;
+    p {
+      margin: 0px;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    .contactItem {
+      padding: 1rem 0.5rem;
+    }
+    .title {
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .titleWrap {
+      width: 5rem;
+      display: flex;
+      justify-content: start;
+      align-items: center;
     }
   }
 }
