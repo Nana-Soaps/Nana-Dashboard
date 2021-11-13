@@ -2,7 +2,7 @@ import React from "react";
 
 function CartItem(props) {
   return (
-    <div className="cartItem border-bottom mb-1">
+    <div className="cartItem border-bottom">
       <div className="left">
         <div className="imgWrap">
           <img

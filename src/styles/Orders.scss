@@ -162,13 +162,14 @@ $money-green: #48ad96;
   }
 
   .cartSummary {
+    margin: auto;
+    max-width: 25rem;
+    width: 50%;
     .cartItem {
       display: flex;
       align-items: center;
       background-color: $white;
-      max-width: 25rem;
-      width: 50%;
-      margin: auto;
+
       padding: 0.5rem;
 
       .left {
@@ -197,12 +198,33 @@ $money-green: #48ad96;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        font-weight: 300;
       }
       h3 {
         font-size: 0.8rem;
         margin: 0px;
         margin-top: 0.3rem;
+        font-weight: 300;
       }
+    }
+  }
+  .costSummary {
+    background-color: $white;
+    h3,
+    p {
+      margin: 0px;
+      font-weight: 300;
+    }
+    .price {
+      font-weight: 400;
+    }
+    .breakdown {
+      div {
+        padding: 0.3rem 0.5rem;
+      }
+    }
+    .total {
+      padding: 1rem 0.5rem;
     }
   }
 }

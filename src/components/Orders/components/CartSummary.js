@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
+import CostSummary from "./CostSummary";
 
 function CartSummary(props) {
   return (
@@ -7,6 +8,7 @@ function CartSummary(props) {
       <CartItem />
       <CartItem />
       <CartItem />
+      <CostSummary />
     </div>
   );
 }
