@@ -10,7 +10,6 @@ function OrderTab(props) {
   const { order } = props;
   const orderBodyEl = useRef(null);
   const [formData, setFormData] = useState({ status: order.status });
-  // const [expanded, setExpanded] = useState(false);
   const date = new Date(order.created_at);
   const time = new Intl.DateTimeFormat("default", {
     hour: "numeric",
@@ -82,10 +81,7 @@ function OrderTab(props) {
         </div>
       </div>
       <div
-        className={`orderBody d-flex justify-content-between ${
-          /*
-          expanded ? "expanded" : "notExpanded"*/ ""
-        }`}
+        className={`orderBody d-flex justify-content-between`}
         ref={orderBodyEl}
       >
         <CartSummary order={order} />
@@ -97,7 +93,6 @@ function OrderTab(props) {
             </div>
             <div className="item border-bottom">
               <p className="title">Shipping:</p>
-              {/* <p>Priority (3-5 Day Shipping)</p> */}
               <p>{`${order.shipping.shipping_name} (${order.shipping.shipping_description}) `}</p>
             </div>
           </div>
