@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { setOrders } from "../../../actions";
@@ -8,8 +8,9 @@ import CartSummary from "./CartSummary";
 
 function OrderTab(props) {
   const { order } = props;
+  const orderBodyEl = useRef(null);
   const [formData, setFormData] = useState({ status: order.status });
-  const [expanded, setExpanded] = useState(false);
+  // const [expanded, setExpanded] = useState(false);
   const date = new Date(order.created_at);
   const time = new Intl.DateTimeFormat("default", {
     hour: "numeric",
@@ -40,14 +41,19 @@ function OrderTab(props) {
   const toggleExpanded = (e) => {
     e.stopPropagation();
     if (e.target.name == "status") return;
-    setExpanded(() => !expanded);
+    if (orderBodyEl.current.style.maxHeight) {
+      orderBodyEl.current.style.maxHeight = "";
+    } else {
+      orderBodyEl.current.style.maxHeight =
+        orderBodyEl.current.scrollHeight.toString() + "px";
+    }
   };
 
   console.log(order);
 
   return (
     <div className="d-flex flex-column orderItem" onClick={toggleExpanded}>
-      <div className={`d-flex orderTop `} onClick={toggleExpanded}>
+      <div className={`d-flex orderTop `}>
         <div className="col1">
           <div className="d-flex flex-column small">
             <p className="m-0">{order.email}</p>
@@ -77,8 +83,10 @@ function OrderTab(props) {
       </div>
       <div
         className={`orderBody d-flex justify-content-between ${
-          expanded ? "expanded" : "notExpanded"
+          /*
+          expanded ? "expanded" : "notExpanded"*/ ""
         }`}
+        ref={orderBodyEl}
       >
         <CartSummary order={order} />
         <div className="orderInfo">

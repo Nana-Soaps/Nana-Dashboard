@@ -81,13 +81,9 @@ $money-green: #48ad96;
       .orderBody {
         width: 100%;
         border-bottom: 1px solid $subtle-accents;
+        transition: max-height 0.4s;
+        max-height: 0px;
         overflow: hidden;
-      }
-      .expanded {
-        height: auto;
-      }
-      .notExpanded {
-        height: 0rem;
       }
 
       .orderTop {
