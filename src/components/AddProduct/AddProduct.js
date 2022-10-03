@@ -36,10 +36,7 @@ function AddProduct(props) {
     // console.log(formDataWithNumbers);
     setIsFetching(true);
     axios
-      .post(
-        "https://nanasoapsbackend.herokuapp.com/api/products",
-        formDataWithNumbers
-      )
+      .post("https://nana-be.up.railway.app/api/products", formDataWithNumbers)
       .then((res) => {
         setIsFetching(false);
         props.setCategories(res.data);

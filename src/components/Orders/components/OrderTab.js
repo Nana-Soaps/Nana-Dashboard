@@ -25,10 +25,9 @@ function OrderTab(props) {
     const { value, name } = e.target;
     setFormData({ ...formData, [name]: value });
     axios
-      .put(
-        `https://nanasoapsbackend.herokuapp.com/api/orders/${order.order_id}`,
-        { [name]: value }
-      )
+      .put(`https://nana-be.up.railway.app/api/orders/${order.order_id}`, {
+        [name]: value,
+      })
       .then((res) => {
         console.log(res);
       })

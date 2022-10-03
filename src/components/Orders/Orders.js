@@ -9,7 +9,7 @@ import "../../styles/Orders.scss";
 function Orders(props) {
   useEffect(() => {
     axios
-      .get("https://nanasoapsbackend.herokuapp.com/api/orders")
+      .get("https://nana-be.up.railway.app/api/orders")
       .then((res) => {
         console.log(res);
         props.setOrders(res.data);

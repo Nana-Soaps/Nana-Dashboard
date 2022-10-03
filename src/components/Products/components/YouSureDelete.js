@@ -36,7 +36,7 @@ function SaveButton(props) {
     setAnchorEl(null);
     closeMenu1();
     axios
-      .delete(`https://nanasoapsbackend.herokuapp.com/api/products/${prodId}`)
+      .delete(`https://nana-be.up.railway.app/api/products/${prodId}`)
       .then((res) => {
         props.setCategories(res.data);
         Swal.fire({

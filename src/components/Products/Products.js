@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function Products(props) {
   useEffect(() => {
     axios
-      .get("https://nanasoapsbackend.herokuapp.com/api/products/categories")
+      .get("https://nana-be.up.railway.app/api/products/categories")
       .then((res) => {
         props.setCategories(res.data);
         console.log(res);
@@ -20,7 +20,7 @@ function Products(props) {
 
   useEffect(() => {
     axios
-      .get("https://nanasoapsbackend.herokuapp.com/api/orders")
+      .get("https://nana-be.up.railway.app/api/orders")
       .then((res) => {
         console.log(res);
         props.setOrders(res.data);

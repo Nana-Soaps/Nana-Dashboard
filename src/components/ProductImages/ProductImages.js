@@ -16,7 +16,7 @@ function ProductImages(props) {
     setIsFetching(true);
     setImg(`https://nana-soaps-products.s3.us-east-2.amazonaws.com/${id}`);
     axios
-      .post("https://nanasoapsbackend.herokuapp.com/api/products/s3Url", {
+      .post("https://nana-be.up.railway.app/api/products/s3Url", {
         imgName: id,
       })
       .then((res) => {
