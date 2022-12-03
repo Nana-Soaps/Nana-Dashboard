@@ -21,7 +21,7 @@ function ProductImages(props) {
       })
       .then((res) => {
         console.log(res.data);
-        setS3URL(res.data.url);
+        setS3URL(res.data);
         setIsFetching(false);
       })
       .catch((err) => {
