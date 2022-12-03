@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+// import { makeStyles } from "@mui/styles";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import axios from "axios";
 import { setCategories } from "../../../actions";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
 
-const useStyles = makeStyles((theme) => ({
-  typography: {
-    padding: theme.spacing(2),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   typography: {
+//     padding: theme.spacing(2),
+//   },
+// }));
 
 function SaveButton(props) {
   const { closeMenu1, prodId } = props;
-  const classes = useStyles();
+  // const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -67,6 +67,7 @@ function SaveButton(props) {
         backgroundColor: "#ffffff",
         boxShadow: "none",
         fontSize: "1rem",
+        color: "black",
       }}
       onClick={handleClick}
     >
@@ -84,7 +85,11 @@ function SaveButton(props) {
           horizontal: "center",
         }}
       >
-        <Typography className={classes.typography}>
+        <Typography
+          sx={{
+            padding: "5px",
+          }}
+        >
           <Typography style={{ textAlign: "center" }}>
             Are you sure ?
           </Typography>
