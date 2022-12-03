@@ -45,7 +45,7 @@ function EditProduct(props) {
 
     axios
       .put(
-        `https://nana-be.up.railway.app/api/products//${product.product_id}`,
+        `https://nana-be.up.railway.app/api/products/${product.product_id}`,
         formDataWithNumbers
       )
       .then((res) => {
