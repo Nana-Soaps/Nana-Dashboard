@@ -31,7 +31,6 @@ function ProductImages(props) {
   }, []);
   const onChange = (e) => {
     setFile(e.target.files[0]);
-    console.log(s3URL);
   };
   const handleSubmit = (e) => {
     setIsFetching(true);
