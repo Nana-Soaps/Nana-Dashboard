@@ -9,6 +9,7 @@ $money-green: #48ad96;
 
 .products {
   background-color: $primary;
+  min-height: 100vh;
 
   .top {
     display: flex;
