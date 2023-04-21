@@ -18,7 +18,7 @@ There are 3 major components to this codebase
 1. Store Front UI
 
    - This is the UI that the customer interacts with. The customer can add items to card, edit their cart, and submit orders.
-   - This was created using Next.JS and Typescript.
+   - This was created using ReactJS.
    - To run in local, execute the following commands:
 
    `cd storefront`
@@ -27,7 +27,7 @@ There are 3 major components to this codebase
 2. Dashboard UI
 
    - This is what the business owner interacts with. From this dashboard, the business owner can manage the website content and existing orders.
-   - This was created using Next.JS and Typescript.
+   - This was created using ReactJS.
    - To run in local, execute the following commands:
 
    `cd dashboard`
@@ -35,7 +35,7 @@ There are 3 major components to this codebase
 
 3. Server
 
-   - This is a REST API created using Express and Typescript. The API interacts with data stored in a PostgreSQL database.
+   - This is a REST API created using Express. The API interacts with data stored in a PostgreSQL database.
    - To run in local:
 
      1. get into the /server directory: `cd server`
